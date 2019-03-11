@@ -23,6 +23,19 @@
     </div>
     <div id="raffles"></div>
 
+
+    <!-- He tenido que poner esta función aquí, sino no la encontraba -->
+    <script>
+    function updateMark(raffle, entered) {
+    if (localStorage.getItem(raffle)){
+        localStorage.removeItem(raffle);
+        document.getElementById(raffle).innerHTML = "Mark as entered"
+    }
+    else{
+        localStorage.setItem(raffle, true);
+        document.getElementById(raffle).innerHTML = "Entered"
+    }
+}   </script>
     <script src="public/js/main.js"></script>
 </body>
 

@@ -1,15 +1,11 @@
 var data = require('../data/raffles.js');
-// console.log('data', data)
-
 
 window.onload = function () {
     printShoe();
     showRaffles();
 };
 
-function entered() {
-    console.log("entrado");
-}
+
 
 function printShoe() {
     let { model, colour, code, avaliable, price } = data.sole.shoe;
@@ -37,16 +33,22 @@ function showRaffles() {
             <p>Closes - ${Closes}</p>
             ${buttonColor(Opens, url, Closes)}
             <br/>
-            <span>Mark as entered
-            </a>        
-
+            <br/>
+            ${alreadyEntered(raffle)}
+            </a>
         `
 
-        var node = document.createElement("div");
+        let node = document.createElement("div");
         node.className = "box"
         node.innerHTML = box;
         document.getElementById("raffles").appendChild(node);
     }
+}
+
+function alreadyEntered(raffle) {
+    let entered = localStorage.getItem(raffle)
+    return !entered ? `<p onClick="updateMark(this.id, ${entered})" value=false id="${raffle}">Mark as entered </p>` : `<p onClick="updateMark(this.id, ${entered})" id="${raffle}">Entered </p>`
+
 }
 
 function buttonColor(status, url, closes) {
@@ -69,3 +71,5 @@ function buttonColor(status, url, closes) {
     return `<a class="button ${colorBtn}" href="${url}" target="_blank">${text}</a>`
 
 }
+
+

@@ -2,10 +2,9 @@ var data = require('../data/raffles.js');
 
 window.onload = function () {
     printShoe();
+    showFilters();
     showRaffles();
 };
-
-
 
 function printShoe() {
     let { model, colour, code, avaliable, price } = data.sole.shoe;
@@ -14,10 +13,21 @@ function printShoe() {
     document.getElementById("infoMP").innerHTML = "<h3>" + avaliable + " | " + price + " | " + code + "</h3>";
 }
 
+function showFilters(){
+    let raffles = data.sole.raffles;
+    for (var raffle in raffles) {
+        let country = raffles[raffle].country;
+        
+        let filter = `<a href="#" id='${country}' onClick="updateFilter('${country}', this.id)">${country}</a></li>`
+        
+        let node = document.createElement("li");
+        node.innerHTML = filter;
+        document.getElementById("filters").appendChild(node);
+    }
+}
+
 function showRaffles() {
     let raffles = data.sole.raffles;
-    console.log('raffles', raffles)
-
 
     for (var raffle in raffles) {
         let { Closes, Opens, Sizes, collection, country, logo, purchase, url } = raffles[raffle];

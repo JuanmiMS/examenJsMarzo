@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Examen JS Marzo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="public/css/main.css">
 </head>
 
 <body>
@@ -21,22 +20,58 @@
             <div id="infoMP"></div>
         </div>
     </div>
+
+    <ul id="filters">
+        <li>
+            <a href="#" id='All' class="selected" onclick="updateFilter('All', this.id)">All</a>
+        </li>
+    </ul>
+
     <div id="raffles"></div>
 
 
     <!-- He tenido que poner esta función aquí, sino no la encontraba -->
     <script>
     function updateMark(raffle, entered) {
-    if (localStorage.getItem(raffle)){
-        localStorage.removeItem(raffle);
-        document.getElementById(raffle).innerHTML = "Mark as entered"
+        if (localStorage.getItem(raffle)) {
+            localStorage.removeItem(raffle);
+            document.getElementById(raffle).innerHTML = "Mark as entered"
+        }
+        else {
+            localStorage.setItem(raffle, true);
+            document.getElementById(raffle).innerHTML = "Entered"
+        }
+    }   
+    
+    function updateFilter(country){
+        let countryIn = document.getElementById(country);
+        if (countryIn.id === "All"){
+            let elems = document.querySelectorAll(".selected");
+
+            [].forEach.call(elems, function(el) {
+                el.classList.remove("selected");
+            });
+            
+            document.getElementById("All").classList.add("selected")
+
+        }
+        else{
+
+            if(!countryIn.classList.contains("selected")){
+            countryIn.className = "selected";
+            document.getElementById("All").classList.remove("selected")
+        }
+        else{
+            countryIn.classList.remove("selected");
+        }
+        }
+
     }
-    else{
-        localStorage.setItem(raffle, true);
-        document.getElementById(raffle).innerHTML = "Entered"
-    }
-}   </script>
+
+    </script>
     <script src="public/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="public/css/main.css">
+
 </body>
 
 </html>

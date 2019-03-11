@@ -54,13 +54,13 @@ function updateWin(raffle){
 
     if(confirm("¿Has ganado?")){
         localStorage.setItem(raffle, "ganado");
-        id.innerHTML = "GANADO";
+        id.innerHTML = "W";
         id.style.backgroundColor = "#75D69C";
 
     }
     else{
         localStorage.setItem(raffle, "perdido");
-        id.innerHTML = "PERDIDO";
+        id.innerHTML = "L";
         id.style.backgroundColor = "#FF6F69"
     }
 

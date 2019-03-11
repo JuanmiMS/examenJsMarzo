@@ -76,10 +76,10 @@ function checkWin(raffle) {
     }
     else{
         if(entered == "ganado"){
-            return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" style="background-color: #75D69C;"  id="${raffle+'Win'}">GANADO</p>`
+            return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" style="background-color: #75D69C;"  id="${raffle+'Win'}">W</p>`
         }
         else{
-            return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" style="background-color: #FF6F69;"  id="${raffle+'Win'}">PERDIDO</p>`
+            return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" style="background-color: #FF6F69;"  id="${raffle+'Win'}">L</p>`
 
         }
         

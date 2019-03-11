@@ -37,7 +37,7 @@ body{
 }
 
 
-#titleR{
+.titleR{
     font-weight: bold;
 }
 
@@ -92,4 +92,11 @@ body{
     color: white;
     padding: 5px;
     border-radius: 5px;
+}
+
+.esconder{
+    display: none;
+}
+.mostrar{
+    display: block;
 }

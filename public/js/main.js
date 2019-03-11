@@ -116,13 +116,13 @@ function showFilters(){
         let country = raffles[raffle].country;
         
         if(!alreadyAdded.includes(country)){
-        let filter = `<a href="#" id='${country}' onClick="updateFilter('${country}', this.id)">${country}</a></li>`
-        
-        let node = document.createElement("li");
-        node.innerHTML = filter;
-        document.getElementById("filters").appendChild(node);
-    alreadyAdded.push(country);    
-    }
+            let filter = `<a href="#" id='${country}' onClick="updateFilter('${country}', this.id)">${country}</a></li>`
+            
+            let node = document.createElement("li");
+            node.innerHTML = filter;
+            document.getElementById("filters").appendChild(node);
+            alreadyAdded.push(country);    
+        }
     }
 }
 
@@ -134,7 +134,7 @@ function showRaffles() {
 
         //Creamos cada caja
         let box = `<img src=${logo} />
-            <p id="titleR">${raffle}</p>
+            <p class="titleR">${raffle}</p>
             <p>${country}</p>
             <p>${purchase}</p>
             <p>${collection}</p>

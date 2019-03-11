@@ -38,7 +38,7 @@ function showRaffles() {
 
         //Creamos cada caja
         let box = `<img src=${logo} />
-            <p id="titleR">${raffle}</p>
+            <p class="titleR">${raffle}</p>
             <p>${country}</p>
             <p>${purchase}</p>
             <p>${collection}</p>

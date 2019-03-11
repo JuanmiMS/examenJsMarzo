@@ -30,7 +30,7 @@
     <div id="raffles"></div>
 
 
-    <!-- He tenido que poner esta función aquí, sino no la encontraba -->
+    <!-- He tenido que poner estas funciones aquí, sino no la encontraba -->
     <script>
     function updateMark(raffle, entered) {
         if (localStorage.getItem(raffle)) {
@@ -51,19 +51,33 @@
             [].forEach.call(elems, function(el) {
                 el.classList.remove("selected");
             });
-            
-            document.getElementById("All").classList.add("selected")
 
+        var arrAllListTags = document.querySelectorAll('.box');
+        for(element in arrAllListTags){
+            arrAllListTags[element].classList.add("mostrar")
+        }
+
+        document.getElementById("All").classList.add("selected")
         }
         else{
-
             if(!countryIn.classList.contains("selected")){
-            countryIn.className = "selected";
-            document.getElementById("All").classList.remove("selected")
+                countryIn.className = "selected";
+                document.getElementById("All").classList.remove("selected")
         }
         else{
             countryIn.classList.remove("selected");
         }
+        }
+
+        var arrAllListTags = document.querySelectorAll('.box');
+        for(element in arrAllListTags){
+            if(!arrAllListTags[element].innerHTML.includes(country)){
+                arrAllListTags[element].classList.add("esconder")
+            }
+            else{
+                arrAllListTags[element].classList.add("mostrar")
+            }
+
         }
 
     }

@@ -131,9 +131,9 @@ function showRaffles() {
             <p>${Sizes}</p>        
             <p>Opens - ${Opens}</p>        
             <p>Closes - ${Closes}</p>
-            <a href="${url}" target="_blank">ENTER RAFFLE</a>
+            <a class="greenButton" href="${url}" target="_blank">ENTER RAFFLE</a>
             <br />
-            <span  >Mark as entered
+            <span>Mark as entered
             </a>        
 
         `

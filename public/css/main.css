@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    width: 800px; margin: 0 auto;
+}
+
+.column{
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+#shoe{
+    width: 500px;
+}
+
+#info{
+    margin-top: 20px;
+}
+

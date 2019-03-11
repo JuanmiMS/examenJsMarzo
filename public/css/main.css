@@ -33,8 +33,12 @@ body{
     width: 200px;
 }
 
-.greenButton{
-    background-color: #4CAF50;
+
+#titleR{
+    font-weight: bold;
+}
+
+.button{
     border: none;
     color: white;
     padding: 15px 32px;
@@ -45,3 +49,14 @@ body{
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.greenButton{
+    background-color: #4CAF50;
+}
+.redButton{
+    background-color: red;
+}
+.greyButton{
+    background-color: grey;
+}
+

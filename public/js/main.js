@@ -103,7 +103,7 @@ window.onload = function () {
     showRaffles();
 };
 
-function entered(){
+function entered() {
     console.log("entrado");
 }
 
@@ -124,14 +124,14 @@ function showRaffles() {
 
         //Creamos cada caja
         let box = `<img src=${logo} />
-            <p>${raffle}</p>
+            <p id="titleR">${raffle}</p>
             <p>${country}</p>
             <p>${purchase}</p>
             <p>${collection}</p>
             <p>${Sizes}</p>        
             <p>Opens - ${Opens}</p>        
             <p>Closes - ${Closes}</p>
-            <a class="greenButton" href="${url}" target="_blank">ENTER RAFFLE</a>
+            ${buttonColor(Opens, url, Closes)}
             <br />
             <span>Mark as entered
             </a>        
@@ -143,9 +143,27 @@ function showRaffles() {
         node.innerHTML = box;
         document.getElementById("raffles").appendChild(node);
     }
-
-
 }
 
+function buttonColor(status, url, closes) {
+
+    if (closes === "closed") { return `<a class="button redButton" href="${url}" target="_blank">CLOSED</a>` }
+
+    switch (status) {
+        case "live":
+            colorBtn = "greenButton"
+            text = "ENTER RAFFLE"
+            break;
+        case "announced":
+            colorBtn = "greyButton"
+            text = "ANNOUNCED "
+            break;
+        default:
+            colorBtn = "redButton"
+            text = "CLOSED"
+    }
+    return `<a class="button ${colorBtn}" href="${url}" target="_blank">${text}</a>`
+
+}
 
 },{"../data/raffles.js":1}]},{},[2]);

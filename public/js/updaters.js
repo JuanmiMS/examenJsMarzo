@@ -1,5 +1,3 @@
-
-
 function updateMark(raffle) {
     if (localStorage.getItem(raffle)) {
         localStorage.removeItem(raffle);

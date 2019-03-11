@@ -15,14 +15,18 @@ function printShoe() {
 
 function showFilters(){
     let raffles = data.sole.raffles;
+    let alreadyAdded = [];
     for (var raffle in raffles) {
         let country = raffles[raffle].country;
         
-        let filter = `<a href="#" id='${country}' onClick="updateFilter('${country}', this.id)">${country}</a></li>`
-        
-        let node = document.createElement("li");
-        node.innerHTML = filter;
-        document.getElementById("filters").appendChild(node);
+        if(!alreadyAdded.includes(country)){
+            let filter = `<a href="#" id='${country}' onClick="updateFilter('${country}', this.id)">${country}</a></li>`
+            
+            let node = document.createElement("li");
+            node.innerHTML = filter;
+            document.getElementById("filters").appendChild(node);
+            alreadyAdded.push(country);    
+        }
     }
 }
 

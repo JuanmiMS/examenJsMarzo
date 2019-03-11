@@ -1,9 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
 body{
-    width: 800px; margin: 0 auto;
+    width: 1350px; margin: 0 auto;
 }
 
 .column{
@@ -25,3 +21,14 @@ body{
     margin-top: 20px;
 }
 
+.box{
+    width: 300px;
+    background-color: beige;
+    padding: 10px;
+    margin: 10px;
+    float: left;
+}
+
+.box img{
+    width: 200px;
+}

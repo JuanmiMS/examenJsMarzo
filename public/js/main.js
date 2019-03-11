@@ -77,7 +77,7 @@ var raffles = {
     },
 
     "Solebox": {
-        "logo": "https://www.soleretriever.com/wp-content/uploads/2018/04/SoleBox.jpg'git",
+        "logo": "https://www.soleretriever.com/wp-content/uploads/2018/04/SoleBox.jpg",
         "country": "Germany",
         "purchase": "In-Store/Online",
         "collection": "Post and Collect",
@@ -95,15 +95,44 @@ exports.sole = {
 };
 },{}],2:[function(require,module,exports){
 var data = require('../data/raffles.js');
-console.log('data', data)
+// console.log('data', data)
 
 
-let { model, colour, code, avaliable, price } = data.sole.shoe;
-console.log('data', model, colour, code, avaliable, price)
+window.onload = function () {
+    printShoe();
+    showRaffles();
+};
+
+function printShoe() {
+    let { model, colour, code, avaliable, price } = data.sole.shoe;
+    document.getElementById("titleMP").innerHTML = "<h1>" + model + "</h1>";
+    document.getElementById("colorMP").innerHTML = "<h2>" + colour + "</h2>";
+    document.getElementById("infoMP").innerHTML = "<h3>" + avaliable + " | " + price + " | " + code + "</h3>";
+}
+
+function showRaffles() {
+    let raffles = data.sole.raffles;
+    console.log('raffles', raffles)
 
 
-document.getElementById("titleMP").innerHTML = "<h1>" + model + "</h1>";
-document.getElementById("colorMP").innerHTML = "<h2>" + colour + "</h2>";
-document.getElementById("infoMP").innerHTML = "<h3>" + avaliable + " | " + price + " | " + code + "</h3>";
-document.getElementById("priceMP").innerHTML = "<h1>" + avaliable + " | " + price + "</h3>";
+    for (var raffle in raffles) {
+        let { Closes, Opens, Sizes, collection, country, logo, purchase, url } = raffles[raffle];
+
+        //Creamos cada caja
+        let box = `<img src=${logo} />
+            <p>${raffle}</p>
+            <p>${country}</p>
+            <p>${Sizes}</p>        
+        `
+
+        var node = document.createElement("div");
+        node.className = "box"
+        node.innerHTML = box;
+        document.getElementById("raffles").appendChild(node);
+    }
+
+
+}
+
+
 },{"../data/raffles.js":1}]},{},[2]);

@@ -33,7 +33,6 @@ function showRaffles() {
             <p>Closes - ${Closes}</p>
             ${buttonColor(Opens, url, Closes)}
             <br/>
-            <br/>
             ${alreadyEntered(raffle)}
             </a>
         `

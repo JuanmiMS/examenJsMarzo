@@ -103,6 +103,10 @@ window.onload = function () {
     showRaffles();
 };
 
+function entered(){
+    console.log("entrado");
+}
+
 function printShoe() {
     let { model, colour, code, avaliable, price } = data.sole.shoe;
     document.getElementById("titleMP").innerHTML = "<h1>" + model + "</h1>";
@@ -122,7 +126,16 @@ function showRaffles() {
         let box = `<img src=${logo} />
             <p>${raffle}</p>
             <p>${country}</p>
+            <p>${purchase}</p>
+            <p>${collection}</p>
             <p>${Sizes}</p>        
+            <p>Opens - ${Opens}</p>        
+            <p>Closes - ${Closes}</p>
+            <a href="${url}" target="_blank">ENTER RAFFLE</a>
+            <br />
+            <span  >Mark as entered
+            </a>        
+
         `
 
         var node = document.createElement("div");

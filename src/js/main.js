@@ -4,6 +4,8 @@ window.onload = function () {
     printShoe();
     showFilters();
     showRaffles();
+    showWin();
+    checkWin();
 };
 
 function printShoe() {
@@ -48,6 +50,7 @@ function showRaffles() {
             ${buttonColor(Opens, url, Closes)}
             <br/>
             ${alreadyEntered(raffle)}
+            ${checkWin(raffle)}
             </a>
         `
 
@@ -64,6 +67,24 @@ function alreadyEntered(raffle) {
 
 }
 
+function checkWin(raffle) {
+    let entered = localStorage.getItem(raffle+"Win")
+    
+    //check if not null
+    if(!entered){
+        return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" value=false id="${raffle+'Win'}">¿Has ganado?</p>`
+    }
+    else{
+        if(entered == "ganado"){
+            return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" style="background-color: #75D69C;"  id="${raffle+'Win'}">GANADO</p>`
+        }
+        else{
+            return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" style="background-color: #FF6F69;"  id="${raffle+'Win'}">PERDIDO</p>`
+
+        }
+        
+    }
+}
 function buttonColor(status, url, closes) {
 
     if (closes === "closed") { return `<a class="button redButton" href="${url}" target="_blank">CLOSED</a>` }
@@ -85,4 +106,8 @@ function buttonColor(status, url, closes) {
 
 }
 
+function showWin(raffle){
+    let entered = localStorage.getItem(raffle)
+    return `<p onClick="updateWin(this.id, ${entered})" class="buttonWin" value=false id="${raffle+'Win'}">¿Has ganado?</p>`
+}
 

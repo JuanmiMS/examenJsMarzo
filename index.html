@@ -31,58 +31,7 @@
 
 
     <!-- He tenido que poner estas funciones aquí, sino no la encontraba -->
-    <script>
-    function updateMark(raffle, entered) {
-        if (localStorage.getItem(raffle)) {
-            localStorage.removeItem(raffle);
-            document.getElementById(raffle).innerHTML = "Mark as entered"
-        }
-        else {
-            localStorage.setItem(raffle, true);
-            document.getElementById(raffle).innerHTML = "Entered"
-        }
-    }   
-    
-    function updateFilter(country){
-        let countryIn = document.getElementById(country);
-        if (countryIn.id === "All"){
-            let elems = document.querySelectorAll(".selected");
-
-            [].forEach.call(elems, function(el) {
-                el.classList.remove("selected");
-            });
-
-        var arrAllListTags = document.querySelectorAll('.box');
-        for(element in arrAllListTags){
-            arrAllListTags[element].classList.add("mostrar")
-        }
-
-        document.getElementById("All").classList.add("selected")
-        }
-        else{
-            if(!countryIn.classList.contains("selected")){
-                countryIn.className = "selected";
-                document.getElementById("All").classList.remove("selected")
-        }
-        else{
-            countryIn.classList.remove("selected");
-        }
-        }
-
-        var arrAllListTags = document.querySelectorAll('.box');
-        for(element in arrAllListTags){
-            if(!arrAllListTags[element].innerHTML.includes(country)){
-                arrAllListTags[element].classList.add("esconder")
-            }
-            else{
-                arrAllListTags[element].classList.add("mostrar")
-            }
-
-        }
-
-    }
-
-    </script>
+    <script src="public/js/updaters.js"></script>
     <script src="public/js/main.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="public/css/main.css">
 

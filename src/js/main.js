@@ -36,7 +36,7 @@ function showRaffles() {
             <p>Opens - ${Opens}</p>        
             <p>Closes - ${Closes}</p>
             ${buttonColor(Opens, url, Closes)}
-            <br />
+            <br/>
             <span>Mark as entered
             </a>        
 
